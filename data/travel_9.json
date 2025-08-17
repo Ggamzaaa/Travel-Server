@@ -1,0 +1,9 @@
+{
+  "trip_id": 9,
+  "trip_name": "뽀또사냥꾼",
+  "start_date": "2025-08-17",
+  "end_date": "2025-08-20",
+  "itineraries": [
+    { "itinerary_id": 10, "departure_place": "서울", "destination": "대전", "departure_time": "2025-08-19T08:00", "arrival_time": "2025-08-25T08:00", "check_in": "", "check_out": "" }
+  ]
+}
