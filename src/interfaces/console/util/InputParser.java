@@ -18,7 +18,11 @@ public class InputParser {
         if (inputStartDate.isEmpty()) {
             throw new TravelException(ErrorCode.TRAVEL_START_DATE_IS_EMPTY);
         }
-        return LocalDate.parse(inputStartDate);
+        try {
+            return LocalDate.parse(inputStartDate);
+        } catch (DateTimeParseException e) {
+            throw new TravelException(ErrorCode.TRAVEL_DATE_FORMAT_EXCEPTION);
+        }
     }
 
     public LocalDate validateEndDate(String inputEndDate, LocalDate startDate) {
