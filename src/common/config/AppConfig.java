@@ -27,7 +27,7 @@ import travel.infra.JsonTravelRepository;
 
 public class AppConfig {
     private final TravelRepository travelRepository;
-    private IdGenerator idGenerator;
+    private final IdGenerator idGenerator;
     private final TravelFactory travelFactory;
     private final TravelService travelService;
     private final ItineraryRepository itineraryRepository;
