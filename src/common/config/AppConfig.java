@@ -27,7 +27,7 @@ import travel.infra.JsonTravelRepository;
 
 public class AppConfig {
     private final TravelRepository travelRepository;
-    private final IdGenerator idGenerator;
+    private IdGenerator idGenerator;
     private final TravelFactory travelFactory;
     private final TravelService travelService;
     private final ItineraryRepository itineraryRepository;
@@ -54,7 +54,7 @@ public class AppConfig {
         this.idGenerator = new AtomicIdGenerator(seed);
 
         this.travelFactory = new TravelFactory(idGenerator);
-        this.itineraryFactory = new ItineraryFactory(idGenerator);
+        this.itineraryFactory = new ItineraryFactory(itineraryRepository);
         this.travelService = new TravelServiceImpl(travelRepository);
         this.itineraryService = new ItineraryServiceImpl(itineraryRepository);
 

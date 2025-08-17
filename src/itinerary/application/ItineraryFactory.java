@@ -1,19 +1,17 @@
 package itinerary.application;
 
-import common.domain.IdGenerator;
 import itinerary.domain.Itinerary;
+import itinerary.domain.ItineraryRepository;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-
 public class ItineraryFactory {
-    private final IdGenerator idGen;
+    private final ItineraryRepository itineraryRepository;
 
-    public ItineraryFactory(IdGenerator idGen) {
-        this.idGen = Objects.requireNonNull(idGen);
+    public ItineraryFactory(ItineraryRepository itineraryRepository) {
+        this.itineraryRepository = Objects.requireNonNull(itineraryRepository);
     }
 
-    /** ID를 생성해서 완성된 Itinerary를 만들어 반환 */
     public Itinerary newItinerary(
             int travelId,
             String departurePlace,
@@ -23,7 +21,12 @@ public class ItineraryFactory {
             LocalDateTime checkIn,
             LocalDateTime checkOut
     ) {
-        int itineraryId = idGen.nextId();
-        return new Itinerary(itineraryId, travelId, departurePlace, destination, departureTime, arrivalTime, checkIn, checkOut);
+        int nextId = itineraryRepository.findItinerariesByTravelId(travelId).stream()
+                .mapToInt(Itinerary::getItineraryId)
+                .max()
+                .orElse(0) + 1;
+
+        return new Itinerary(nextId, travelId, departurePlace, destination,
+                departureTime, arrivalTime, checkIn, checkOut);
     }
 }
