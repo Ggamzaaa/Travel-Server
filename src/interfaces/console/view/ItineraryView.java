@@ -105,13 +105,13 @@ public class ItineraryView {
         LocalDateTime departureTime = retryHandler.handle(inputHandler::getDepartureTime);
 
         print(askArrivalTime());
-        LocalDateTime arrivalTime = retryHandler.handle(inputHandler::getArrivalTime);
+        LocalDateTime arrivalTime = retryHandler.handle(() -> inputHandler.getArrivalTime(departureTime));
 
         print(askCheckIn());
         LocalDateTime checkIn = retryHandler.handle(inputHandler::getCheckIn);
 
         print(askCheckOut());
-        LocalDateTime checkOut = retryHandler.handle(inputHandler::getCheckOut);
+        LocalDateTime checkOut = retryHandler.handle(() -> inputHandler.getCheckOut(checkIn));
 
         return itineraryFactory.newItinerary(travelId, departurePlace, destination,
                 departureTime, arrivalTime, checkIn, checkOut);
@@ -123,10 +123,15 @@ public class ItineraryView {
         System.out.printf("여정 ID : %s%n", i.getFormattedItineraryId());
         System.out.printf("출발지 : %s%n", i.getDeparturePlace());
         System.out.printf("도착지 : %s%n", i.getDestination());
-        System.out.printf("출발 시간 : %s%n", i.getDepartureTime() == null ? "-" : i.getDepartureTime());
-        System.out.printf("도착 시간 : %s%n", i.getArrivalTime() == null ? "-" : i.getArrivalTime());
-        System.out.printf("체크인 : %s%n", i.getCheckIn() == null ? "-" : i.getCheckIn());
-        System.out.printf("체크아웃 : %s%n", i.getCheckOut() == null ? "-" : i.getCheckOut());
+        System.out.printf("출발 시간 : %s%n",
+                i.getDepartureTime() == null ? "-" : i.getDepartureTime().format(formatter));
+        System.out.printf("도착 시간 : %s%n",
+                i.getArrivalTime() == null ? "-" : i.getArrivalTime().format(formatter));
+        System.out.printf("체크인 : %s%n",
+                i.getCheckIn() == null ? "-" : i.getCheckIn().format(formatter));
+        System.out.printf("체크아웃 : %s%n",
+                i.getCheckOut() == null ? "-" : i.getCheckOut().format(formatter));
+        System.out.println("------------------------------------");
         System.out.println("------------------------------------");
     }
 

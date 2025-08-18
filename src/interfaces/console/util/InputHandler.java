@@ -74,13 +74,13 @@ public class InputHandler {
         return sc.nextLine();
     }
 
-    public LocalDateTime getArrivalTime() {
+    public LocalDateTime getArrivalTime(LocalDateTime departureTime) {
         Scanner sc = new Scanner(System.in);
         String arrivalTimeValue = sc.nextLine().trim();
         if (arrivalTimeValue.isEmpty()) {
             return null;
         }
-        return inputParser.parseLocalDateTime(arrivalTimeValue);
+        return inputParser.validateArrivalTime(arrivalTimeValue, departureTime);
     }
 
     public String getArrivalTimeString() {
@@ -97,13 +97,13 @@ public class InputHandler {
         return inputParser.parseLocalDateTime(checkInValue);
     }
 
-    public LocalDateTime getCheckOut() {
+    public LocalDateTime getCheckOut(LocalDateTime checkIn) {
         Scanner sc = new Scanner(System.in);
         String checkOutValue = sc.nextLine().trim();
         if (checkOutValue.isEmpty()) {
             return null;
         }
-        return inputParser.parseLocalDateTime(checkOutValue);
+        return inputParser.validateCheckOut(checkOutValue, checkIn);
     }
 
     public int readMenuSelection() {
