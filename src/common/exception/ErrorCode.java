@@ -2,6 +2,12 @@ package common.exception;
 
 public enum ErrorCode {
     /**
+     * main-menu
+     */
+    MAIN_MENU_INVALID_RANGE("MAIN-MENU_001", "메인 메뉴 범위는 1 - 5입니다"),
+    MAIN_MENU_INVALID_YES_OR_NO("MAIN_MENU-002", "Y/N만 입력이 가능합니다"),
+
+    /**
      * travel
      */
     TRAVEL_NOT_FOUND("TRAVEL-ERROR-001", "존재하지 않는 여행입니다."),
@@ -32,6 +38,7 @@ public enum ErrorCode {
     public String getCode() {
         return code;
     }
+
     public String getMessage() {
         return message;
     }

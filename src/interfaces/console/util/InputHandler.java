@@ -3,6 +3,8 @@ package interfaces.console.util;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
+import interfaces.console.view.MainMenuOption;
+import interfaces.console.view.UserCommand;
 
 public class InputHandler {
     private final InputParser inputParser;
@@ -106,25 +108,15 @@ public class InputHandler {
         return inputParser.validateCheckOut(checkOutValue, checkIn);
     }
 
-    public int readMenuSelection() {
+    public MainMenuOption readMenuSelection() {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        return Integer.parseInt(input);
+        return MainMenuOption.of(input);
     }
 
-    public boolean askContinue() {
+    public UserCommand askContinue() {
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.print("계속 진행하시겠습니까? (Y/N): ");
-            String input = sc.nextLine().trim().toUpperCase();
-
-            if (input.equals("Y") || input.equals("YES")) {
-                return true;
-            } else if (input.equals("N") || input.equals("NO")) {
-                return false;
-            } else {
-                System.err.println("[Error] Y 또는 N만 입력 가능합니다.");
-            }
-        }
+        String input = sc.nextLine().trim().toUpperCase();
+        return UserCommand.of(input);
     }
 }
