@@ -1,9 +1,9 @@
 package test.travel.infra;
 
 import test.util.TestUtil;
-import travel.domain.Travel;
-import travel.domain.TravelRepository;
-import travel.infra.JsonTravelRepository;
+import main.travel.domain.Travel;
+import main.travel.domain.TravelRepository;
+import main.travel.infra.JsonTravelRepository;
 
 import java.io.File;
 import java.time.LocalDate;

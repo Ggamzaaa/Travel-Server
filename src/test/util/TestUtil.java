@@ -1,6 +1,6 @@
 package test.util;
 
-import travel.domain.Travel;
+import main.travel.domain.Travel;
 
 import java.io.File;
 import java.time.format.DateTimeFormatter;

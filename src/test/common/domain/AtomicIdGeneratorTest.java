@@ -1,7 +1,7 @@
 package test.common.domain;
 
-import common.domain.AtomicIdGenerator;
-import common.domain.IdGenerator;
+import main.common.domain.AtomicIdGenerator;
+import main.common.domain.IdGenerator;
 import test.util.TestUtil;
 
 public class AtomicIdGeneratorTest {
