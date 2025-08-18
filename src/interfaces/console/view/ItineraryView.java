@@ -26,8 +26,8 @@ public class ItineraryView {
     public String askTravelId()          { return "여정 기록을 원하는 여행 ID를 입력하세요 *: "; }
     public String askDeparturePlace()    { return "출발지를 입력하세요 * : "; }
     public String askDestination()       { return "도착지를 입력하세요 * : "; }
-    public String askDepartureTime()     { return "출발 시간을 입력하세요 (ex. 2025-12-25 08:00) : "; }
-    public String askArrivalTime()       { return "도착 시간을 입력하세요 (ex. 2025-12-31 23:00) : "; }
+    public String askDepartureTime()     { return "출발 시간을 입력하세요 (ex. 2025-12-25 08:00) (없으면 Enter를 입력하세요) : "; }
+    public String askArrivalTime()       { return "도착 시간을 입력하세요 (ex. 2025-12-31 23:00) (없으면 Enter를 입력하세요) : "; }
     public String askCheckIn()           { return "체크인 시간을 입력하세요 (없으면 Enter를 입력하세요) : "; }
     public String askCheckOut()          { return "체크아웃 시간을 입력하세요 (없으면 Enter를 입력하세요) : "; }
 
@@ -85,8 +85,12 @@ public class ItineraryView {
     public Itinerary readItineraryFromUser(int travelId) {
         String departurePlace = retryHandler.handle(this::promptDeparturePlace);
         String destination = retryHandler.handle(this::promptDestination);
-        LocalDateTime departureTime = retryHandler.handle(this::promptDepartureTime);
-        LocalDateTime arrivalTime = retryHandler.handle(this::promptArrivalTime);
+
+        print(askDepartureTime());
+        LocalDateTime departureTime = inputHandler.getDepartureTime();
+
+        print(askArrivalTime());
+        LocalDateTime arrivalTime = inputHandler.getArrivalTime();
 
         print(askCheckIn());
         LocalDateTime checkIn = inputHandler.getCheckIn();
@@ -104,8 +108,8 @@ public class ItineraryView {
         System.out.printf("여정 ID : %s%n", i.getFormattedItineraryId());
         System.out.printf("출발지 : %s%n", i.getDeparturePlace());
         System.out.printf("도착지 : %s%n", i.getDestination());
-        System.out.printf("출발 시간 : %s%n", i.getDepartureTime());
-        System.out.printf("도착 시간 : %s%n", i.getArrivalTime());
+        System.out.printf("출발 시간 : %s%n", i.getDepartureTime() == null ? "-" : i.getDepartureTime());
+        System.out.printf("도착 시간 : %s%n", i.getArrivalTime() == null ? "-" : i.getArrivalTime());
         System.out.printf("체크인 : %s%n", i.getCheckIn() == null ? "-" : i.getCheckIn());
         System.out.printf("체크아웃 : %s%n", i.getCheckOut() == null ? "-" : i.getCheckOut());
         System.out.println("------------------------------------");
