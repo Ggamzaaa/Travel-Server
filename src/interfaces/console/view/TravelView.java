@@ -1,6 +1,6 @@
 package interfaces.console.view;
 
-import interfaces.console.util.InputHandler;
+import interfaces.console.input.InputHandler;
 import interfaces.console.util.RetryHandler;
 import java.time.LocalDate;
 import java.util.List;
