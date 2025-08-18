@@ -27,8 +27,8 @@ public class ItineraryView {
     }
 
     public String askTravelId()          { return "여정 기록을 원하는 여행 ID를 입력하세요 * : "; }
-    public String askDeparturePlace()    { return "출발지를 입력하세요 * : "; }
-    public String askDestination()       { return "도착지를 입력하세요 * : "; }
+    public String askDeparturePlace()    { return "출발지를 입력하세요: "; }
+    public String askDestination()       { return "도착지를 입력하세요: "; }
     public String askDepartureTime()     { return "출발 시간을 입력하세요 (ex. 2025-12-25 08:00) (없으면 Enter를 입력하세요) : "; }
     public String askArrivalTime()       { return "도착 시간을 입력하세요 (ex. 2025-12-31 23:00) (없으면 Enter를 입력하세요) : "; }
     public String askCheckIn()           { return "체크인 시간을 입력하세요 (ex. 2025-12-25 08:00) (없으면 Enter를 입력하세요) : "; }
@@ -48,7 +48,17 @@ public class ItineraryView {
     public int promptTravelIdForItinerary() {
         System.out.print("여정 기록을 원하는 여행 ID를 입력하세요 * : ");
         Scanner sc = new Scanner(System.in);
-        return Integer.parseInt(sc.nextLine());
+        String input = sc.nextLine().trim();
+        if (input.isEmpty()) {
+            System.out.println("여행 ID를 입력해주세요.");
+            return promptTravelIdForItinerary();
+        }
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("올바른 숫자를 입력해주세요.");
+            return promptTravelIdForItinerary();
+        }
     }
 
     public void showNoTravelIdMessage(int travelId) {
@@ -58,7 +68,17 @@ public class ItineraryView {
     public int promptTravelIdForQuery() {
         System.out.print("조회할 여행 ID를 입력하세요 : ");
         Scanner sc = new Scanner(System.in);
-        return Integer.parseInt(sc.nextLine());
+        String input = sc.nextLine().trim();
+        if (input.isEmpty()) {
+            System.out.println("여행 ID를 입력해주세요.");
+            return promptTravelIdForQuery();
+        }
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("올바른 숫자를 입력해주세요.");
+            return promptTravelIdForQuery();
+        }
     }
 
     public void showNoItinerariesMessage(int travelId) {
