@@ -2,5 +2,10 @@
   "trip_id": 8,
   "trip_name": "깜자야 여행가쟝!",
   "start_date": "2022-12-13",
-  "end_date": "2025-12-12"
+  "end_date": "2025-12-12",
+  "itineraries": [
+    { "itinerary_id": 1, "departure_place": "프디아", "destination": "서울", "departure_time": "2025-12-21T08:00", "arrival_time": "2025-12-23T08:00", "check_in": "", "check_out": "" },
+    { "itinerary_id": 2, "departure_place": "서울", "destination": "제주", "departure_time": "2025-12-29T08:00", "arrival_time": "2025-12-31T08:00", "check_in": "", "check_out": "" },
+    { "itinerary_id": 3, "departure_place": "제주", "destination": "상하이", "departure_time": "2026-01-01T08:00", "arrival_time": "2026-01-03T08:00", "check_in": "", "check_out": "" }
+  ]
 }

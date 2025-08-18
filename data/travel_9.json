@@ -4,6 +4,10 @@
   "start_date": "2025-08-17",
   "end_date": "2025-08-20",
   "itineraries": [
-    { "itinerary_id": 10, "departure_place": "서울", "destination": "대전", "departure_time": "2025-08-19T08:00", "arrival_time": "2025-08-25T08:00", "check_in": "", "check_out": "" }
+    { "itinerary_id": 10, "departure_place": "서울", "destination": "대전", "departure_time": "2025-08-19T08:00", "arrival_time": "2025-08-25T08:00", "check_in": "", "check_out": "" },
+    { "itinerary_id": 11, "departure_place": "서울", "destination": "부ㅅ산", "departure_time": "2025-12-25T08:00", "arrival_time": "2025-12-25T08:00", "check_in": "2025-12-21T08:00", "check_out": "2025-12-25T08:00" },
+    { "itinerary_id": 12, "departure_place": "서울", "destination": "상하이", "departure_time": "2025-12-25T08:00", "arrival_time": "2025-12-25T10:00", "check_in": "2025-12-25T08:00", "check_out": "2025-12-31T06:00" },
+    { "itinerary_id": 13, "departure_place": "서울", "destination": "프라하", "departure_time": "2025-12-25T08:00", "arrival_time": "2025-12-28T08:00", "check_in": "2025-12-25T08:00", "check_out": "" },
+    { "itinerary_id": 14, "departure_place": "서우울", "destination": "프라후", "departure_time": "", "arrival_time": "", "check_in": "", "check_out": "" }
   ]
 }
