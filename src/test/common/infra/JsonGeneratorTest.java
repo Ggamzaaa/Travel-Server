@@ -1,8 +1,8 @@
 package test.common.infra;
 
-import common.infra.JsonGenerator;
+import main.common.infra.JsonGenerator;
 import test.util.TestUtil;
-import travel.domain.Travel;
+import main.travel.domain.Travel;
 
 import java.io.File;
 import java.time.LocalDate;

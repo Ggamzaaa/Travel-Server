@@ -1,12 +1,12 @@
 package test.travel.application;
 
-import common.domain.AtomicIdGenerator;
+import main.common.domain.AtomicIdGenerator;
 import test.util.TestUtil;
-import travel.application.TravelFactory;
-import travel.application.TravelServiceImpl;
-import travel.domain.Travel;
-import travel.domain.TravelRepository;
-import travel.infra.JsonTravelRepository;
+import main.travel.application.TravelFactory;
+import main.travel.application.TravelServiceImpl;
+import main.travel.domain.Travel;
+import main.travel.domain.TravelRepository;
+import main.travel.infra.JsonTravelRepository;
 
 import java.io.File;
 import java.time.LocalDate;
