@@ -53,7 +53,7 @@ public class JsonGenerator {
             for (int i = 0; i < itineraries.size(); i++) {
                 Itinerary it = itineraries.get(i);
                 out.printf(
-                        "    { \"itinerary_id\": %d, \"departure_place\": \"%s\", \"destination\": \"%s\", \"departure_time\": \"%s\", \"arrival_time\": \"%s\", \"check_in\": \"%s\", \"check_out\": \"%s\" }%s%n",
+                        "    { \"itinerary_id\": %d,%n      \"departure_place\": \"%s\",%n      \"destination\": \"%s\",%n      \"departure_time\": \"%s\",%n      \"arrival_time\": \"%s\",%n      \"check_in\": \"%s\",%n      \"check_out\": \"%s\"%n }%s%n",
                         it.getItineraryId(),
                         it.getDeparturePlace(),
                         it.getDestination(),
