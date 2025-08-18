@@ -28,12 +28,12 @@ public class TravelView {
     }
 
     public LocalDate promptStartDate() {
-        printMessage("시작 날짜를 입력하세요 * (ex. 2025-12-25) : ");;
+        printMessage("시작 날짜를 입력하세요 (ex. 2025-12-25) * : ");;
         return inputHandler.getStartDate();
     }
 
     public LocalDate promptEndDate(LocalDate startDate) {
-        printMessage("종료 날짜를 입력하세요 * (ex. 2025-12-31) : ");
+        printMessage("종료 날짜를 입력하세요 (ex. 2025-12-31) * : ");
         return inputHandler.getEndDate(startDate);
     }
 

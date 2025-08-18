@@ -1,6 +1,16 @@
 {
   "trip_id": 10,
-  "trip_name": "뽀또여행",
-  "start_date": "2022-02-28",
-  "end_date": "2022-02-28"
+  "trip_name": "hodu",
+  "start_date": "2025-01-01",
+  "end_date": "2025-01-03",
+  "itineraries": [
+    { "itinerary_id": 11, "departure_place": "seoul", "destination": "daegu", "departure_time": "2025-01-01T08:00", "arrival_time": "2025-01-01T23:00", "check_in": "", "check_out": "" },
+    { "itinerary_id": 12, "departure_place": "daegu", "destination": "busan", "departure_time": "2025-01-02T08:00", "arrival_time": "2025-01-03T13:00", "check_in": "", "check_out": "" },
+    { "itinerary_id": 12, "departure_place": "seoul", "destination": "busan", "departure_time": "2025-12-25T08:00", "arrival_time": "2025-12-25T13:00", "check_in": "", "check_out": "" },
+    { "itinerary_id": 12, "departure_place": "seoul", "destination": "busan", "departure_time": "", "arrival_time": "", "check_in": "", "check_out": "" },
+    { "itinerary_id": 12, "departure_place": "seoul", "destination": "busan", "departure_time": "", "arrival_time": "", "check_in": "", "check_out": "" },
+    { "itinerary_id": 12, "departure_place": "seoul", "destination": "busan", "departure_time": "", "arrival_time": "", "check_in": "", "check_out": "" },
+    { "itinerary_id": 12, "departure_place": "서울", "destination": "부산", "departure_time": "", "arrival_time": "", "check_in": "", "check_out": "" },
+    { "itinerary_id": 13, "departure_place": "서울", "destination": "부산", "departure_time": "2025-12-25T08:00", "arrival_time": "2025-12-26T13:00", "check_in": "2025-12-27T13:00", "check_out": "2025-12-28T13:00" }
+  ]
 }
