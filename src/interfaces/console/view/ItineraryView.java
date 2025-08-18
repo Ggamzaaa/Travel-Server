@@ -48,6 +48,10 @@ public class ItineraryView {
         return Integer.parseInt(sc.nextLine());
     }
 
+    public void showNoTravelIdMessage(int travelId) {
+        System.out.println("해당 여행 ID(" + travelId + ")는 존재하지 않습니다.");
+    }
+
     public int promptTravelIdForQuery() {
         System.out.print("조회할 여행 ID를 입력하세요 : ");
         Scanner sc = new Scanner(System.in);

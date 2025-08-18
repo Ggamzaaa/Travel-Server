@@ -113,9 +113,18 @@ public class InputHandler {
     }
 
     public boolean askContinue() {
-        System.out.print("계속 하시겠습니까? (Y/N) : ");
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine().trim().toUpperCase();
-        return input.equals("Y");
+        while (true) {
+            System.out.print("계속 진행하시겠습니까? (Y/N): ");
+            String input = sc.nextLine().trim().toUpperCase();
+
+            if (input.equals("Y") || input.equals("YES")) {
+                return true;
+            } else if (input.equals("N") || input.equals("NO")) {
+                return false;
+            } else {
+                System.err.println("[Error] Y 또는 N만 입력 가능합니다.");
+            }
+        }
     }
 }
