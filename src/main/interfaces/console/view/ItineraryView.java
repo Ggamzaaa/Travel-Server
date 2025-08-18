@@ -60,14 +60,14 @@ public class ItineraryView {
     }
 
     public boolean askAddMoreItinerary() {
-        System.out.print("여정을 더 입력하시겠습니까? (Y/N) : ");
+        System.out.println("여정을 더 입력하시겠습니까? (Y/N) : ");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine().trim().toUpperCase();
         return input.equals("Y");
     }
 
     public int promptTravelIdForItinerary() {
-        System.out.print("여정 기록을 원하는 여행 ID를 입력하세요 * : ");
+        System.out.println("여정 기록을 원하는 여행 ID를 입력하세요 * : ");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine().trim();
         if (input.isEmpty()) {
@@ -87,7 +87,7 @@ public class ItineraryView {
     }
 
     public int promptTravelIdForQuery() {
-        System.out.print("조회할 여행 ID를 입력하세요 : ");
+        System.out.println("조회할 여행 ID를 입력하세요 : ");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine().trim();
         if (input.isEmpty()) {
