@@ -20,4 +20,9 @@ public class TravelServiceImpl implements TravelService {
     public List<Travel> listAll() {
         return repo.findAll();
     }
+    
+    @Override
+    public boolean travelExists(int travelId) {
+        return repo.findById(travelId).isPresent();
+    }
 }
