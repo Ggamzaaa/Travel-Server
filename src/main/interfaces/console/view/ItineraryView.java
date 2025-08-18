@@ -32,11 +32,11 @@ public class ItineraryView {
     }
 
     public String askDeparturePlace() {
-        return "출발지를 입력하세요 * : ";
+        return "출발지를 입력하세요: ";
     }
 
     public String askDestination() {
-        return "도착지를 입력하세요 * : ";
+        return "도착지를 입력하세요: ";
     }
 
     public String askDepartureTime() {
@@ -69,7 +69,17 @@ public class ItineraryView {
     public int promptTravelIdForItinerary() {
         System.out.print("여정 기록을 원하는 여행 ID를 입력하세요 * : ");
         Scanner sc = new Scanner(System.in);
-        return Integer.parseInt(sc.nextLine());
+        String input = sc.nextLine().trim();
+        if (input.isEmpty()) {
+            System.out.println("여행 ID를 입력해주세요.");
+            return promptTravelIdForItinerary();
+        }
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("올바른 숫자를 입력해주세요.");
+            return promptTravelIdForItinerary();
+        }
     }
 
     public void showNoTravelIdMessage(int travelId) {
@@ -79,7 +89,17 @@ public class ItineraryView {
     public int promptTravelIdForQuery() {
         System.out.print("조회할 여행 ID를 입력하세요 : ");
         Scanner sc = new Scanner(System.in);
-        return Integer.parseInt(sc.nextLine());
+        String input = sc.nextLine().trim();
+        if (input.isEmpty()) {
+            System.out.println("여행 ID를 입력해주세요.");
+            return promptTravelIdForQuery();
+        }
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("올바른 숫자를 입력해주세요.");
+            return promptTravelIdForQuery();
+        }
     }
 
     public void showNoItinerariesMessage(int travelId) {
