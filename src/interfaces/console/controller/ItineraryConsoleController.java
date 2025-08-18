@@ -15,8 +15,16 @@ public class ItineraryConsoleController {
     }
 
     public void recordItinerary() {
-        // 여행 ID는 한 번만 입력받기
-        int travelId = itineraryView.promptTravelIdForItinerary();
+        int travelId;
+        while (true) {
+            travelId = itineraryView.promptTravelIdForItinerary();
+
+            if (!itineraryService.travelExists(travelId)) { // 여행 자체가 없는 경우
+                itineraryView.showNoTravelIdMessage(travelId);
+                continue; // 다시 입력
+            }
+            break; // 유효한 여행 ID면 종료
+        }
 
         do {
             Itinerary itinerary = itineraryView.readItineraryFromUser(travelId);
@@ -26,14 +34,25 @@ public class ItineraryConsoleController {
     }
 
     public void listItineraries() {
-        int travelId = itineraryView.promptTravelIdForQuery();
-        List<Itinerary> itineraries = itineraryService.getItinerariesByTravelId(travelId);
+        int travelId;
+        while (true) {
+            travelId = itineraryView.promptTravelIdForQuery();
 
-        if (itineraries.isEmpty()) {
-            itineraryView.showNoItinerariesMessage(travelId);
-        } else {
+            if (!itineraryService.travelExists(travelId)) { // 여행 자체가 없는 경우
+                itineraryView.showNoTravelIdMessage(travelId);
+                continue;
+            }
+
+            List<Itinerary> itineraries = itineraryService.getItinerariesByTravelId(travelId);
+
+            if (itineraries.isEmpty()) { // 여행은 존재하지만 여정이 없는 경우
+                itineraryView.showNoItinerariesMessage(travelId);
+                break; // 조회 끝, 다시 메뉴로
+            }
+
             itineraryView.showItineraryListHeader(travelId);
             itineraryView.showItineraries(itineraries);
+            break;
         }
     }
 }
