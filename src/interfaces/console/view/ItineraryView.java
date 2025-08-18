@@ -7,6 +7,7 @@ import itinerary.domain.Itinerary;
 import itinerary.application.ItineraryFactory;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +16,8 @@ public class ItineraryView {
     private final InputParser inputParser;
     private final RetryHandler retryHandler;
     private final ItineraryFactory itineraryFactory;
+
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     public ItineraryView(InputHandler inputHandler, InputParser inputParser, RetryHandler retryHandler, ItineraryFactory itineraryFactory) {
         this.inputHandler = inputHandler;
@@ -106,13 +109,13 @@ public class ItineraryView {
         LocalDateTime departureTime = retryHandler.handle(inputHandler::getDepartureTime);
 
         print(askArrivalTime());
-        LocalDateTime arrivalTime = retryHandler.handle(inputHandler::getArrivalTime);
+        LocalDateTime arrivalTime = retryHandler.handle(() -> inputHandler.getArrivalTime(departureTime));
 
         print(askCheckIn());
         LocalDateTime checkIn = retryHandler.handle(inputHandler::getCheckIn);
 
         print(askCheckOut());
-        LocalDateTime checkOut = retryHandler.handle(inputHandler::getCheckOut);
+        LocalDateTime checkOut = retryHandler.handle(() -> inputHandler.getCheckOut(checkIn));
 
         return itineraryFactory.newItinerary(travelId, departurePlace, destination,
                 departureTime, arrivalTime, checkIn, checkOut);
@@ -124,10 +127,15 @@ public class ItineraryView {
         System.out.printf("여정 ID : %s%n", i.getFormattedItineraryId());
         System.out.printf("출발지 : %s%n", i.getDeparturePlace());
         System.out.printf("도착지 : %s%n", i.getDestination());
-        System.out.printf("출발 시간 : %s%n", i.getDepartureTime() == null ? "-" : i.getDepartureTime());
-        System.out.printf("도착 시간 : %s%n", i.getArrivalTime() == null ? "-" : i.getArrivalTime());
-        System.out.printf("체크인 : %s%n", i.getCheckIn() == null ? "-" : i.getCheckIn());
-        System.out.printf("체크아웃 : %s%n", i.getCheckOut() == null ? "-" : i.getCheckOut());
+        System.out.printf("출발 시간 : %s%n",
+                i.getDepartureTime() == null ? "-" : i.getDepartureTime().format(formatter));
+        System.out.printf("도착 시간 : %s%n",
+                i.getArrivalTime() == null ? "-" : i.getArrivalTime().format(formatter));
+        System.out.printf("체크인 : %s%n",
+                i.getCheckIn() == null ? "-" : i.getCheckIn().format(formatter));
+        System.out.printf("체크아웃 : %s%n",
+                i.getCheckOut() == null ? "-" : i.getCheckOut().format(formatter));
+        System.out.println("------------------------------------");
         System.out.println("------------------------------------");
     }
 
@@ -142,10 +150,14 @@ public class ItineraryView {
             System.out.printf("여정 ID : %s%n", i.getFormattedItineraryId());
             System.out.printf("출발지 : %s%n", i.getDeparturePlace());
             System.out.printf("도착지 : %s%n", i.getDestination());
-            System.out.printf("출발 시간 : %s%n", i.getDepartureTime() == null ? "-" : i.getDepartureTime());
-            System.out.printf("도착 시간 : %s%n", i.getArrivalTime() == null ? "-" : i.getArrivalTime());
-            System.out.printf("체크인 : %s%n", i.getCheckIn() == null ? "-" : i.getCheckIn());
-            System.out.printf("체크아웃 : %s%n", i.getCheckOut() == null ? "-" : i.getCheckOut());
+            System.out.printf("출발 시간 : %s%n",
+                    i.getDepartureTime() == null ? "-" : i.getDepartureTime().format(formatter));
+            System.out.printf("도착 시간 : %s%n",
+                    i.getArrivalTime() == null ? "-" : i.getArrivalTime().format(formatter));
+            System.out.printf("체크인 : %s%n",
+                    i.getCheckIn() == null ? "-" : i.getCheckIn().format(formatter));
+            System.out.printf("체크아웃 : %s%n",
+                    i.getCheckOut() == null ? "-" : i.getCheckOut().format(formatter));
             System.out.println("------------------------------------");
         }
     }
