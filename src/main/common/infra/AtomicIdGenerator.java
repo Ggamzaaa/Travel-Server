@@ -1,4 +1,6 @@
-package main.common.domain;
+package main.common.infra;
+
+import main.common.domain.IdGenerator;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

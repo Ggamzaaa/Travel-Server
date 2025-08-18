@@ -1,6 +1,6 @@
 package test.travel.application;
 
-import main.common.domain.AtomicIdGenerator;
+import main.common.infra.AtomicIdGenerator;
 import test.util.TestUtil;
 import main.travel.application.TravelFactory;
 import main.travel.application.TravelServiceImpl;

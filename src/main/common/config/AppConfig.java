@@ -11,7 +11,7 @@ import main.interfaces.console.view.TravelView;
 import main.interfaces.console.view.ItineraryView;
 import main.interfaces.console.view.MainView;
 import main.interfaces.console.view.ExitView;
-import main.common.domain.AtomicIdGenerator;
+import main.common.infra.AtomicIdGenerator;
 import main.common.domain.IdGenerator;
 import main.itinerary.domain.ItineraryRepository;
 import main.itinerary.infra.JsonItineraryRepository;
