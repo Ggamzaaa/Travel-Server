@@ -42,7 +42,7 @@ public class MainView {
     }
 
     private UserCommand printContinue() {
-        System.out.println("계속 하시겠습니까? (Y/N): ");
+        System.out.println("계속 하시겠습니까? (Y/N) : ");
         return inputHandler.askContinue();
     }
 }
