@@ -15,12 +15,6 @@ public class TravelConsoleController {
         this.travelView = travelView;
     }
 
-//    public void recordTravel() {
-//        Travel travel = travelView.readTravelFromUser();
-//        travelView.displayTravelSaved(travel);
-//        travelService.save(travel);
-//    }
-
     public void recordTravel() {
         Travel travel = travelView.readTravelFromUser();
         Travel savedTravel = travelService.save(travel);

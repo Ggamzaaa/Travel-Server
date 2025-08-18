@@ -70,9 +70,8 @@ public class AppConfig {
         this.itineraryConsoleController = new ItineraryConsoleController(itineraryService, itineraryView);
 
         this.mainConsoleController = new MainConsoleController(
-                new MainView(),
+                new MainView(inputHandler, retryHandler),
                 new ExitView(),
-                inputHandler,
                 travelConsoleController,
                 itineraryConsoleController
         );

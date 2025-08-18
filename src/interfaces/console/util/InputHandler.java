@@ -3,6 +3,8 @@ package interfaces.console.util;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
+import interfaces.console.view.MainMenuOption;
+import interfaces.console.view.UserCommand;
 
 public class InputHandler {
     private final InputParser inputParser;
@@ -106,16 +108,15 @@ public class InputHandler {
         return inputParser.parseLocalDateTime(checkOutValue);
     }
 
-    public int readMenuSelection() {
+    public MainMenuOption readMenuSelection() {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        return Integer.parseInt(input);
+        return MainMenuOption.of(input);
     }
 
-    public boolean askContinue() {
-        System.out.print("계속 하시겠습니까? (Y/N): ");
+    public UserCommand askContinue() {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine().trim().toUpperCase();
-        return input.equals("Y") || input.equals("YES");
+        return UserCommand.of(input);
     }
 }
