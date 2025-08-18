@@ -54,7 +54,7 @@ public class AppConfig {
         this.idGenerator = new AtomicIdGenerator(seed);
 
         this.travelFactory = new TravelFactory(idGenerator);
-        this.itineraryFactory = new ItineraryFactory(idGenerator);
+        this.itineraryFactory = new ItineraryFactory(itineraryRepository);
         this.travelService = new TravelServiceImpl(travelRepository);
         this.itineraryService = new ItineraryServiceImpl(itineraryRepository);
 

@@ -1,6 +1,5 @@
 package test.itinerary;
 
-import common.domain.AtomicIdGenerator;
 import itinerary.application.ItineraryFactory;
 import itinerary.application.ItineraryService;
 import itinerary.application.ItineraryServiceImpl;
@@ -23,9 +22,8 @@ public class ItineraryTest {
 
         int travelId = 1;
 //        int seed = repo.findItinerariesByTravelId(travelId).stream().mapToInt(Itinerary::getItineraryId).max().orElse(0);
-        int seed = service.getItinerariesByTravelId(travelId).stream().mapToInt(Itinerary::getItineraryId).max().orElse(0);
 
-        ItineraryFactory factory = new ItineraryFactory(new AtomicIdGenerator(seed));
+        ItineraryFactory factory = new ItineraryFactory(repo);
 //        ItineraryService itineraryService = new ItineraryService(repo);
 
         // --- 여정 기록 ---
