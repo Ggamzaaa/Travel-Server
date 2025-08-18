@@ -62,26 +62,30 @@ public class InputHandler {
 
     public LocalDateTime getDepartureTime() {
         Scanner sc = new Scanner(System.in);
-        String departureTimeValue = sc.nextLine();
-        inputParser.validateDepartureTime(departureTimeValue);
+        String departureTimeValue = sc.nextLine().trim();
+        if (departureTimeValue.isEmpty()) {
+            return null;
+        }
         return inputParser.parseLocalDateTime(departureTimeValue);
     }
 
     public String getDepartureTimeString() {
         Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        return sc.next();
     }
 
     public LocalDateTime getArrivalTime() {
         Scanner sc = new Scanner(System.in);
-        String arrivalDateValue = sc.nextLine();
-        inputParser.validateArrivalTime(arrivalDateValue);
-        return inputParser.parseLocalDateTime(arrivalDateValue);
+        String arrivalTimeValue = sc.nextLine().trim();
+        if (arrivalTimeValue.isEmpty()) {
+            return null;
+        }
+        return inputParser.parseLocalDateTime(arrivalTimeValue);
     }
 
     public String getArrivalTimeString() {
         Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        return sc.next();
     }
 
     public LocalDateTime getCheckIn() {

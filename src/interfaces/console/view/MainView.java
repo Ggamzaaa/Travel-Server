@@ -17,7 +17,7 @@ public class MainView {
         System.out.println(" - 여정 조회 (4)");
         System.out.println(" - 종료     (5)");
         System.out.println();
-        System.out.print("원하는 메뉴 번호를 선택하세요: ");
+        System.out.print("원하는 메뉴 번호를 선택하세요 * : ");
     }
 
     public void printInvalidSelection() {

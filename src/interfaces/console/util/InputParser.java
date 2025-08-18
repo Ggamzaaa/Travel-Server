@@ -57,23 +57,11 @@ public class InputParser {
         }
     }
 
-    public void validateDepartureTime(String departureTime) {
-        if (departureTime.isEmpty()) {
-            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_IS_EMPTY);
-        }
-    }
-
-    public void validateArrivalTime(String arrivalTime) {
-        if (arrivalTime.isEmpty()) {
-            throw new TravelException(ErrorCode.TRAVEL_ARRIVAL_TIME_IS_EMPTY);
-        }
-    }
-
     public LocalDateTime parseLocalDateTime(String dateTimeString) {
         try {
             return LocalDateTime.parse(dateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-            } catch (DateTimeParseException e) {
-                throw new TravelException(ErrorCode.TRAVEL_DATE_FORMAT_EXCEPTION);
+        } catch (DateTimeParseException e) {
+            throw new TravelException(ErrorCode.TRAVEL_DATE_FORMAT_EXCEPTION);
         }
     }
 }
