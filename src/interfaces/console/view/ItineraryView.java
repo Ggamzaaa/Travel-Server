@@ -136,7 +136,6 @@ public class ItineraryView {
         System.out.printf("체크아웃 : %s%n",
                 i.getCheckOut() == null ? "-" : i.getCheckOut().format(formatter));
         System.out.println("------------------------------------");
-        System.out.println("------------------------------------");
     }
 
     public void showItineraries(List<Itinerary> list) {

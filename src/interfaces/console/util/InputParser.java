@@ -78,18 +78,26 @@ public class InputParser {
     }
 
     public LocalDateTime validateArrivalTime(String inputArrivalTime, LocalDateTime departureTime) {
+        if (departureTime == null) {
+            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_IS_EMPTY);
+        }
+
         LocalDateTime arrivalTime = parseLocalDateTime(inputArrivalTime);
 
-        if (arrivalTime.isBefore(departureTime)) {
+        if (inputArrivalTime != null && arrivalTime.isBefore(departureTime)) {
             throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_AFTER_ARRIVAL_TIME);
         }
         return arrivalTime;
     }
 
     public LocalDateTime validateCheckOut(String inputCheckOut, LocalDateTime checkIn) {
+        if (checkIn == null) {
+            throw new TravelException(ErrorCode.TRAVEL_CHECK_IN_IS_EMPTY);
+        }
+
         LocalDateTime checkOut = parseLocalDateTime(inputCheckOut);
 
-        if (checkOut.isBefore(checkIn)) {
+        if (inputCheckOut != null && checkOut.isBefore(checkIn)) {
             throw new TravelException(ErrorCode.TRAVEL_CHECK_IN_AFTER_CHECK_OUT);
         }
         return checkOut;
