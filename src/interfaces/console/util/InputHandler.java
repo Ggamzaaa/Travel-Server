@@ -38,26 +38,26 @@ public class InputHandler {
 
     public String getDeparturePlace() {
         Scanner sc = new Scanner(System.in);
-        String departurePlaceValue = sc.next();
+        String departurePlaceValue = sc.nextLine();
         inputParser.validateDeparturePlace(departurePlaceValue);
         return departurePlaceValue;
     }
 
     public String getDeparturePlaceString() {
         Scanner sc = new Scanner(System.in);
-        return sc.next();
+        return sc.nextLine();
     }
 
     public String getDestination() {
         Scanner sc = new Scanner(System.in);
-        String destinationValue = sc.next();
+        String destinationValue = sc.nextLine();
         inputParser.validateDestination(destinationValue);
         return destinationValue;
     }
 
     public String getDestinationString() {
         Scanner sc = new Scanner(System.in);
-        return sc.next();
+        return sc.nextLine();
     }
 
     public LocalDateTime getDepartureTime() {
@@ -71,7 +71,7 @@ public class InputHandler {
 
     public String getDepartureTimeString() {
         Scanner sc = new Scanner(System.in);
-        return sc.next();
+        return sc.nextLine();
     }
 
     public LocalDateTime getArrivalTime() {
@@ -85,7 +85,7 @@ public class InputHandler {
 
     public String getArrivalTimeString() {
         Scanner sc = new Scanner(System.in);
-        return sc.next();
+        return sc.nextLine();
     }
 
     public LocalDateTime getCheckIn() {
