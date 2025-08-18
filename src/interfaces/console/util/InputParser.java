@@ -64,4 +64,22 @@ public class InputParser {
             throw new TravelException(ErrorCode.TRAVEL_DATE_FORMAT_EXCEPTION);
         }
     }
+
+    public LocalDateTime validateArrivalTime(String inputArrivalTime, LocalDateTime departureTime) {
+        LocalDateTime arrivalTime = parseLocalDateTime(inputArrivalTime);
+
+        if (arrivalTime.isBefore(departureTime)) {
+            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_AFTER_ARRIVAL_TIME);
+        }
+        return arrivalTime;
+    }
+
+    public LocalDateTime validateCheckOut(String inputCheckOut, LocalDateTime checkIn) {
+        LocalDateTime checkOut = parseLocalDateTime(inputCheckOut);
+
+        if (checkOut.isBefore(checkIn)) {
+            throw new TravelException(ErrorCode.TRAVEL_CHECK_IN_AFTER_CHECK_OUT);
+        }
+        return checkOut;
+    }
 }
