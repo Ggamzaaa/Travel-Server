@@ -1,7 +1,7 @@
 package interfaces.console.view;
 
-import interfaces.console.util.InputHandler;
-import interfaces.console.util.InputParser;
+import interfaces.console.input.InputHandler;
+import interfaces.console.input.InputParser;
 import interfaces.console.util.RetryHandler;
 import itinerary.domain.Itinerary;
 import itinerary.application.ItineraryFactory;
