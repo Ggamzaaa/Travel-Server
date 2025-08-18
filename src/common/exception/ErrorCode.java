@@ -23,7 +23,9 @@ public enum ErrorCode {
     TRAVEL_DEPARTURE_PLACE_IS_EMPTY("ITINERARY-ERROR-001", "출발지가 비어있습니다."),
     TRAVEL_DESTINATION_IS_EMPTY("ITINERARY-ERROR-002", "도착지가 비어있습니다."),
     TRAVEL_DEPARTURE_TIME_IS_EMPTY("ITINERARY-ERROR-003", "출발 시간이 비어있습니다."),
-    TRAVEL_ARRIVAL_TIME_IS_EMPTY("ITINERARY-ERROR-004", "도착 시간이 비어있습니다.");
+    TRAVEL_ARRIVAL_TIME_IS_EMPTY("ITINERARY-ERROR-004", "도착 시간이 비어있습니다."),
+    TRAVEL_DEPARTURE_TIME_AFTER_ARRIVAL_TIME("ITINERARY-ERROR-005", "출발시간이 도착시간보다 늦습니다."),
+    TRAVEL_CHECK_IN_AFTER_CHECK_OUT("ITINERARY-ERROR-006", "체크인이 체크아웃보다 늦습니다.");
 
     private final String code;
     private final String message;

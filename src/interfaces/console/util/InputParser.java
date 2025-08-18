@@ -57,11 +57,41 @@ public class InputParser {
         }
     }
 
+    public void validateDepartureTime(String departureTime) {
+        if (departureTime.isEmpty()) {
+            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_IS_EMPTY);
+        }
+    }
+
+    public void validateArrivalTime(String arrivalTime) {
+        if (arrivalTime.isEmpty()) {
+            throw new TravelException(ErrorCode.TRAVEL_ARRIVAL_TIME_IS_EMPTY);
+        }
+    }
+
     public LocalDateTime parseLocalDateTime(String dateTimeString) {
         try {
             return LocalDateTime.parse(dateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         } catch (DateTimeParseException e) {
             throw new TravelException(ErrorCode.TRAVEL_DATE_FORMAT_EXCEPTION);
         }
+    }
+
+    public LocalDateTime validateArrivalTime(String inputArrivalTime, LocalDateTime departureTime) {
+        LocalDateTime arrivalTime = parseLocalDateTime(inputArrivalTime);
+
+        if (arrivalTime.isBefore(departureTime)) {
+            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_AFTER_ARRIVAL_TIME);
+        }
+        return arrivalTime;
+    }
+
+    public LocalDateTime validateCheckOut(String inputCheckOut, LocalDateTime checkIn) {
+        LocalDateTime checkOut = parseLocalDateTime(inputCheckOut);
+
+        if (checkOut.isBefore(checkIn)) {
+            throw new TravelException(ErrorCode.TRAVEL_CHECK_IN_AFTER_CHECK_OUT);
+        }
+        return checkOut;
     }
 }
