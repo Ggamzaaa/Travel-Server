@@ -56,7 +56,7 @@ public class AppConfig {
         this.travelFactory = new TravelFactory(idGenerator);
         this.itineraryFactory = new ItineraryFactory(itineraryRepository);
         this.travelService = new TravelServiceImpl(travelRepository);
-        this.itineraryService = new ItineraryServiceImpl(itineraryRepository);
+        this.itineraryService = new ItineraryServiceImpl(itineraryRepository, travelService);
 
         this.inputParser = new InputParser();
         this.inputHandler = new InputHandler(inputParser);
