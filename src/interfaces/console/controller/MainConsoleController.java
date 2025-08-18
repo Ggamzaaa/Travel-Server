@@ -2,8 +2,8 @@ package interfaces.console.controller;
 
 import interfaces.console.view.ExitView;
 import interfaces.console.view.MainView;
-import interfaces.console.view.MainMenuOption;
-import interfaces.console.view.UserCommand;
+import interfaces.console.input.MainMenuOption;
+import interfaces.console.input.UserCommand;
 
 public class MainConsoleController {
     private final MainView mainView;

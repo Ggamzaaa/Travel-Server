@@ -1,6 +1,8 @@
 package interfaces.console.view;
 
-import interfaces.console.util.InputHandler;
+import interfaces.console.input.InputHandler;
+import interfaces.console.input.MainMenuOption;
+import interfaces.console.input.UserCommand;
 import interfaces.console.util.RetryHandler;
 
 public class MainView {

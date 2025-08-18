@@ -1,10 +1,8 @@
-package interfaces.console.util;
+package interfaces.console.input;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
-import interfaces.console.view.MainMenuOption;
-import interfaces.console.view.UserCommand;
 
 public class InputHandler {
     private final InputParser inputParser;

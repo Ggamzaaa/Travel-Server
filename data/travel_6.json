@@ -2,5 +2,8 @@
   "trip_id": 6,
   "trip_name": "여행가쟈!",
   "start_date": "2022-12-12",
-  "end_date": "2023-12-12"
+  "end_date": "2023-12-12",
+  "itineraries": [
+    { "itinerary_id": 1, "departure_place": "프라하", "destination": "제주", "departure_time": "2025-12-25T08:00", "arrival_time": "2025-12-27T08:00", "check_in": "2025-12-25T08:00", "check_out": "2025-12-27T08:00" }
+  ]
 }

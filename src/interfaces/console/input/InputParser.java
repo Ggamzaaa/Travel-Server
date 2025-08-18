@@ -1,6 +1,7 @@
-package interfaces.console.util;
+package interfaces.console.input;
 
 import common.exception.ErrorCode;
+import common.exception.ItineraryException;
 import common.exception.TravelException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -47,25 +48,25 @@ public class InputParser {
 
     public void validateDeparturePlace(String departurePlace) {
         if (departurePlace.isEmpty()) {
-            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_PLACE_IS_EMPTY);
+            throw new ItineraryException(ErrorCode.TRAVEL_DEPARTURE_PLACE_IS_EMPTY);
         }
     }
 
     public void validateDestination(String destination) {
         if (destination.isEmpty()) {
-            throw new TravelException(ErrorCode.TRAVEL_DESTINATION_IS_EMPTY);
+            throw new ItineraryException(ErrorCode.TRAVEL_DESTINATION_IS_EMPTY);
         }
     }
 
     public void validateDepartureTime(String departureTime) {
         if (departureTime.isEmpty()) {
-            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_IS_EMPTY);
+            throw new ItineraryException(ErrorCode.TRAVEL_DEPARTURE_TIME_IS_EMPTY);
         }
     }
 
     public void validateArrivalTime(String arrivalTime) {
         if (arrivalTime.isEmpty()) {
-            throw new TravelException(ErrorCode.TRAVEL_ARRIVAL_TIME_IS_EMPTY);
+            throw new ItineraryException(ErrorCode.TRAVEL_ARRIVAL_TIME_IS_EMPTY);
         }
     }
 
@@ -79,26 +80,26 @@ public class InputParser {
 
     public LocalDateTime validateArrivalTime(String inputArrivalTime, LocalDateTime departureTime) {
         if (departureTime == null) {
-            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_IS_EMPTY);
+            throw new ItineraryException(ErrorCode.TRAVEL_DEPARTURE_TIME_IS_EMPTY);
         }
 
         LocalDateTime arrivalTime = parseLocalDateTime(inputArrivalTime);
 
         if (inputArrivalTime != null && arrivalTime.isBefore(departureTime)) {
-            throw new TravelException(ErrorCode.TRAVEL_DEPARTURE_TIME_AFTER_ARRIVAL_TIME);
+            throw new ItineraryException(ErrorCode.TRAVEL_DEPARTURE_TIME_AFTER_ARRIVAL_TIME);
         }
         return arrivalTime;
     }
 
     public LocalDateTime validateCheckOut(String inputCheckOut, LocalDateTime checkIn) {
         if (checkIn == null) {
-            throw new TravelException(ErrorCode.TRAVEL_CHECK_IN_IS_EMPTY);
+            throw new ItineraryException(ErrorCode.TRAVEL_CHECK_IN_IS_EMPTY);
         }
 
         LocalDateTime checkOut = parseLocalDateTime(inputCheckOut);
 
         if (inputCheckOut != null && checkOut.isBefore(checkIn)) {
-            throw new TravelException(ErrorCode.TRAVEL_CHECK_IN_AFTER_CHECK_OUT);
+            throw new ItineraryException(ErrorCode.TRAVEL_CHECK_IN_AFTER_CHECK_OUT);
         }
         return checkOut;
     }

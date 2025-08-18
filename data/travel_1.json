@@ -2,5 +2,8 @@
   "trip_id": 1,
   "trip_name": "우즈와",
   "start_date": "2022-10-22",
-  "end_date": "2022-11-23"
+  "end_date": "2022-11-23",
+  "itineraries": [
+    { "itinerary_id": 1, "departure_place": "서울", "destination": "프디아", "departure_time": "2025-12-25T08:00", "arrival_time": "2025-12-27T08:00", "check_in": "", "check_out": "" }
+  ]
 }

@@ -1,4 +1,4 @@
-package interfaces.console.view;
+package interfaces.console.input;
 
 import common.exception.ErrorCode;
 import common.exception.MainMenuException;
