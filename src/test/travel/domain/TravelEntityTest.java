@@ -1,7 +1,7 @@
 package test.travel.domain;
 
 import test.util.TestUtil;
-import travel.domain.Travel;
+import main.travel.domain.Travel;
 
 import java.time.LocalDate;
 
